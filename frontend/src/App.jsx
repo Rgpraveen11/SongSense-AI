@@ -33,10 +33,9 @@ function App() {
       setResult(null);
 
       const response = await axios.post(
-        "http://localhost:5000/api/identify",
-        formData
-      );
-
+  `${import.meta.env.VITE_API_URL}/api/identify`,
+  formData
+);
       if (response.data.success) {
         setResult(response.data.song);
       } else {
