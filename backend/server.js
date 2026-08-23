@@ -121,10 +121,8 @@ app.post("/api/identify", upload.single("audio"), async (req, res) => {
   }
 });
 
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
-  console.log(
-    `🎵 SongSense AI server running on http://localhost:${PORT}`
-  );
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`🎵 SongSense AI server running on port ${PORT}`);
 });
